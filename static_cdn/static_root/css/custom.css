@@ -1,0 +1,19 @@
+@keyframes anim1 {
+    from{
+        display: block;
+    }
+    to{
+        display: none;
+    }
+}
+
+#pInTop{
+    font-size: 15pt;
+    color: forestgreen;
+    padding: 10px;
+    background-color: greenyellow;
+    border: 1px solid green;
+    border-radius: 5px;
+    animation: anim1 2s alternate;
+    display: block;
+}

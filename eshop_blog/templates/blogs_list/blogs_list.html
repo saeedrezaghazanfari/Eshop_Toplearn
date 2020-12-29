@@ -1,0 +1,41 @@
+{% extends 'shared/_MainLayout.html' %}
+{% block content %}
+
+	<section>
+		<div class="container">
+
+            <div class="blog-post-area " >
+                <h2 class="title text-center">آخریـن اخبـار</h2>
+
+                {% for obj in page_obj %}
+
+                    {% include 'blogs_list/list_blog_component.html' with obj=obj %}
+
+                {% endfor %}
+
+                <div class="pagination-area">
+                    <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                            <li><a href="?page={{ page_obj.previous_page_number }}">قبلی</a></li>
+                        {% endif %}
+
+                        {% for page in paginator.page_range %}
+                            {% if page == page_obj.number %}
+                                <li><a class="active" href="?page={{ page }}">{{ page }}</a></li>
+                            {% else %}
+                                  <li><a href="?page={{ page }}">{{ page }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if page_obj.has_next %}
+                            <li><a href="?page={{ page_obj.next_page_number }}">بعدی</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+
+            </div>
+
+		</div>
+	</section>
+
+{% endblock %}

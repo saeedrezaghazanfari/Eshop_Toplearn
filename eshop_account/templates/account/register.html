@@ -1,0 +1,49 @@
+{% extends 'shared/_MainLayout.html' %}
+{% block content %}
+
+    <div class="container">
+        <section id="form"><!--form-->
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="signup-form"><!--sign up form-->
+                        <h2>ثبت نام کاربـر جدیـد</h2>
+                        <form method="post">
+                            {% csrf_token %}
+
+                            <label for="{{ register_form.user_name.id_for_label }}">{{ register_form.user_name.label }}</label>
+                            {{ register_form.user_name }}
+                            {% for err in register_form.user_name.errors %}
+                                <p style="color: red; padding: 10px; background-color: #f0adad;text-align: center; border: 1px solid red;">{{ err }}</p>
+                            {% endfor %}
+
+                            <label for="{{ register_form.email.id_for_label }}">{{ register_form.email.label }}</label>
+                            {{ register_form.email }}
+                            {% for err in register_form.email.errors %}
+                                <p style="color: red; padding: 10px; background-color: #f0adad;text-align: center; border: 1px solid red;">{{ err }}</p>
+                            {% endfor %}
+
+                            <label for="{{ register_form.password.id_for_label }}">{{ register_form.password.label }}</label>
+                            {{ register_form.password }}
+                            {% for err in register_form.password.errors %}
+                                <p style="color: red; padding: 10px; background-color: #f0adad;text-align: center; border: 1px solid red;">{{ err }}</p>
+                            {% endfor %}
+
+                            <label for="{{ register_form.repassword.id_for_label }}">{{ register_form.repassword.label }}</label>
+                            {{ register_form.repassword }}
+                            {% for err in register_form.repassword.errors %}
+                                <p style="color: red; padding: 10px; background-color: #f0adad;text-align: center; border: 1px solid red;">{{ err }}</p>
+                            {% endfor %}
+
+                            <button type="submit" class="btn btn-default">ثبت نام</button>
+                        </form>
+                    </div><!--/sign up form-->
+                </div>
+
+            </div>
+            <br>
+            <p> <i class="fa fa-lock"></i> <b>توجه</b> داشته باشید شما بعد از ثبتنام موفق به صورت خودکار به <b>صفحه ی ورود</b> وارد میشوید و با وارد کردن اطلاعات خواسته شده وارد سایت میشوید و میتوانید به حساب کاربری خود مراجعه کنید </p>
+
+        </section>
+    </div>
+
+{% endblock %}

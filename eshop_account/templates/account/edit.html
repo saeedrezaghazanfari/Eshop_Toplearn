@@ -1,0 +1,31 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load render_partial %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-9">
+
+                <h1>ویرایش حساب کاربری</h1>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                    <br>
+                    <button class="btn btn-sm btn-success" type="submit">ذخیره</button>
+                </form>
+                {% for err in form.errors %}
+                    {{ err }}
+                {% endfor %}
+            </div>
+
+            <div class="col-md-3">
+
+                {% render_partial 'eshop_account.views.user_sideBar' %}
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

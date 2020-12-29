@@ -1,0 +1,92 @@
+{% load static %}
+<header id="header"><!--header-->
+		<div class="header_top"><!--header_top-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="contactinfo">
+							<ul class="nav nav-pills">
+								<li><a href="#"><i class="fa fa-phone"></i>80 21 24 36 98+ </a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="social-icons pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header_top-->
+
+		<div class="header-middle"><!--header-middle-->
+			<div class="container">
+				<div class="row">
+					<!-- <div class="col-sm-4 header-middle-menu">
+						<div class="shop-menu pull-left">
+							<ul class="nav navbar-nav">
+								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> پرداخت</a></li>
+							</ul>
+						</div>
+					</div> -->
+
+					<div class="col-sm-4" style="text-align: left;">
+						<div class="logo">
+							<a href="/"><img src="{{ sitesetting.logo.url }}" alt="Logo" style="text-align: center; height: 100px; width: 100px;" />
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.username == 'saeed' %}
+                                    <span style="color: red;" title="شما ادمین سایت میباشید">Admin</span>-
+                                {% endif %}
+                                <span style="color: green;" title="آیدی کاربر">{{ request.user.id }}</span>-
+                                <span style="color: blue;">{{ request.user.username }}</span>
+
+                            {% endif %}
+                            </a>
+						</div>
+					</div>
+
+					<div class="col-sm-8 header-middle-menu">
+						<div class="shop-menu pull-right">
+							<ul class="nav navbar-nav">
+                                {% if request.user.is_authenticated %}
+                                    <li><a href="/user"><i class="fa fa-user"></i> حساب کاربـری</a></li>
+                                    <li><a href="/Userlogout"><i class="fa fa-lock"></i> خروج</a></li>
+                                    <li><a href="/open-order"><i class="fa fa-shopping-cart"></i> سبد خریـد</a></li>
+                                    <li><a href="/vue"><i class="fa fa-star"></i> لیست علاقه مندی ها</a></li>
+                                    <li class="dropdown"><a>API<i class="fa fa-angle-down"></i></a>
+                                        <ul role="menu" class="sub-menu">
+                                            <li><a style="color:white !important; background-color: #6b6666;" href="/api/v1/get-all-data">همه ی دیتاها</a></li>
+                                            <li><a style="color:white !important; background-color: #6b6666;" href="/api/v1/get-fav-data">دیتاهای فعال</a></li>
+                                            <li><a style="color:white !important; background-color: #6b6666;" href="/api/v1/update-fav-data/1" title="enter carry on the url : product's Id">آپدیت دیتاهای فعال</a></li>
+                                            <li><a style="color:white !important; background-color: #6b6666;" href="/api/v1/post-data/">ایجاد دیتا</a></li>
+                                            <li><a style="color:white !important; background-color: #6b6666;" href="/api/v1/search/?name=">جستجوی دیتا</a></li>
+                                            <li><a style="color:white !important; background-color: #6b6666;" href="/api/v1/delete-data/">حذف دیتا</a></li>
+                                        </ul>
+                                    </li>
+                                {% endif %}
+
+								<li><a href="/"><i class="fa fa-shopping-cart"></i>{{ dataFromRenderPartial }}</a></li>
+
+
+                                {% if not request.user.is_authenticated %}
+                                    <li><a href="/login"><i class="fa fa-lock"></i> ورود</a></li>
+                                    <li><a href="/register"><i class="fa fa-lock"></i> ثبتنام</a></li>
+                                {% endif %}
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-middle-->
+
+{#    deleted Navbar_bottom    #}
+
+	</header><!--/header-->

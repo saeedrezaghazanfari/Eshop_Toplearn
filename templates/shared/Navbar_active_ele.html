@@ -1,0 +1,39 @@
+		<div class="header-bottom" style="border-bottom: 3px solid orange; margin-bottom: 50px"><!--header-bottom-->
+			<div class="container">
+				<div class="row">
+
+					<div class="col-sm-3">
+                        {% include 'shared/search_input_component.html' %}
+					</div>
+
+					<div class="col-sm-9">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="mainmenu pull-right">
+                            <ul class="nav navbar-nav collapse navbar-collapse">
+
+                                <li><a href="/" class="{% if request.path == '/' %}active{% endif %}">خـانه</a></li>
+                                <li><a href="/products/" class="{% if request.path == '/products/' %}active{% endif %}">محصولات</a></li>
+                                <li class="dropdown"><a href="#">اخبـار<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="/blog" class="{% if request.path == '/blog' %}active{% endif %}">آخرین اخبار</a></li>
+                                        <li><a href="">صفحـه خبـر</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/about-us">درباره مـا</a></li>
+                                <li><a href="/contactus">تماس با مـا</a></li>
+
+                            </ul>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div><!--/header-bottom-->

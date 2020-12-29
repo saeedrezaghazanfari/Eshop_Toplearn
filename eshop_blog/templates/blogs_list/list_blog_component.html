@@ -1,0 +1,22 @@
+<div class="single-blog-post" style="background-color: #fcfafa; padding: 20px;margin-bottom: 10px;">
+    <h3>{{ obj.titleBlog }}</h3>
+    <div class="post-meta">
+        <ul>
+            <li><i class="fa fa-user"></i> {{ obj.userBlog }}</li>
+            <li><i class="fa fa-clock-o"></i> {{ obj.timeBlog|time }}</li>
+            <li><i class="fa fa-calendar"></i> {{ obj.timeBlog|timesince }} پیش</li>
+        </ul>
+        <span>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+        </span>
+    </div>
+    <a>
+        <img src="{{ obj.imageBlog.url }}" alt="">
+    </a>
+    <p>{{ obj.descriptionBlog | truncatewords:30}}</p>
+    <a  class="btn btn-primary" href="{{ obj.get_url_abs }}">ادامـه مطلب</a>
+</div>

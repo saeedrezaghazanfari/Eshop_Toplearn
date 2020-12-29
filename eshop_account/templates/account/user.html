@@ -1,0 +1,29 @@
+{% extends 'shared/_MainLayout.html' %}
+{% load render_partial %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-9">
+
+                <h1>پنل کاربری</h1>
+                <h3>نام: {{ user.first_name }}</h3>
+                <h3>نام خانوادگی: {{ user.last_name }}</h3>
+                <h3>ایمیل: {{ user.email }}</h3>
+                <h3>تاریخ پیوستن: {{ user.date_joined }}</h3>
+                <h3>نام کاربری: {{ user.username }}</h3>
+                <h3>وضعیت ادمین: {{ user.is_superuser }}</h3>
+
+            </div>
+
+            <div class="col-md-3">
+
+                {% render_partial 'eshop_account.views.user_sideBar' %}
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
